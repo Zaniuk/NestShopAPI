@@ -1,34 +1,61 @@
-import { Injectable } from '@nestjs/common';
-import { CreateCustomerDto } from 'src/dtos/customer/customer';
-import * as customers from '../../mock/customer/mock.data.json';
-import { Customer } from './types/customers.types';
+import { Injectable, NotFoundException } from '@nestjs/common';
+
+import { Customer } from '../../entities/customer.entity';
+import {
+  CreateCustomerDto,
+  UpdateCustomerDto,
+} from '../../dtos/customer/customer';
+
 @Injectable()
 export class CustomersService {
-  private readonly customers: Customer[] = customers;
+  private counterId = 1;
+  private customers: Customer[] = [
+    {
+      id: 1,
+      name: 'Nicolas',
+      lastName: 'Molina',
+      phone: '3111111212',
+    },
+  ];
+
   findAll() {
     return this.customers;
   }
+
   findOne(id: number) {
-    return this.customers.find((customer) => customer.id === id);
+    const customer = this.customers.find((item) => item.id === id);
+    if (!customer) {
+      throw new NotFoundException(`Customer #${id} not found`);
+    }
+    return customer;
   }
-  delete(id: number) {
-    const index = this.customers.findIndex((customer) => customer.id === id);
-    this.customers.splice(index, 1);
-  }
-  create(customer: CreateCustomerDto): Customer {
+
+  create(data: CreateCustomerDto) {
+    this.counterId = this.counterId + 1;
     const newCustomer = {
-      id: this.customers.length + 1,
-      ...customer,
+      id: this.counterId,
+      ...data,
     };
     this.customers.push(newCustomer);
     return newCustomer;
   }
-  update(id: number, customer: CreateCustomerDto): Customer {
-    const index = this.customers.findIndex((customer) => customer.id === id);
+
+  update(id: number, changes: UpdateCustomerDto) {
+    const customer = this.findOne(id);
+    const index = this.customers.findIndex((item) => item.id === id);
     this.customers[index] = {
-      id,
       ...customer,
+      ...changes,
     };
     return this.customers[index];
+  }
+
+  remove(id: number) {
+    const index = this.customers.findIndex((item) => item.id === id);
+    if (index === -1) {
+      throw new NotFoundException(`Customer #${id} not found`);
+    }
+    this.customers.splice(index, 1);
+    return true;
   }
 }
