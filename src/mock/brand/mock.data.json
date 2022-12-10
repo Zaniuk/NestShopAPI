@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Acarbose",
+    "image": "http://dummyimage.com/200x100.png/5fa2dd/ffffff"
+  },
+  {
+    "id": 2,
+    "name": "Calamine",
+    "image": "http://dummyimage.com/169x100.png/dddddd/000000"
+  },
+  {
+    "id": 3,
+    "name": "DR. RECKEWEG R23 Nosoderm",
+    "image": "http://dummyimage.com/232x100.png/5fa2dd/ffffff"
+  },
+  {
+    "id": 4,
+    "name": "Hydrocortisone",
+    "image": "http://dummyimage.com/219x100.png/dddddd/000000"
+  },
+  {
+    "id": 5,
+    "name": "Petroleum-Free Lip Balm",
+    "image": "http://dummyimage.com/204x100.png/dddddd/000000"
+  },
+  {
+    "id": 6,
+    "name": "Salsalate",
+    "image": "http://dummyimage.com/102x100.png/ff4444/ffffff"
+  },
+  {
+    "id": 7,
+    "name": "Footworks",
+    "image": "http://dummyimage.com/231x100.png/5fa2dd/ffffff"
+  },
+  {
+    "id": 8,
+    "name": "Levothyroxine Sodium",
+    "image": "http://dummyimage.com/170x100.png/5fa2dd/ffffff"
+  },
+  {
+    "id": 9,
+    "name": "Childrens Allergy Relief",
+    "image": "http://dummyimage.com/236x100.png/dddddd/000000"
+  },
+  {
+    "id": 10,
+    "name": "Cold and Flu",
+    "image": "http://dummyimage.com/228x100.png/cc0000/ffffff"
+  }
+]
