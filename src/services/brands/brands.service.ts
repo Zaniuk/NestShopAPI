@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Brand } from './types/brand.type';
+import { Brand } from 'src/entities/brand.entity';
 import * as brands from '../../mock/brand/mock.data.json';
 @Injectable()
 export class BrandsService {
