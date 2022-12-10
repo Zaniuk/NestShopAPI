@@ -1,7 +1,7 @@
-import { Brand } from './brand';
+import { CreateBrandDto } from './brand.dto';
 
 describe('Brand', () => {
   it('should be defined', () => {
-    expect(new Brand()).toBeDefined();
+    expect(new CreateBrandDto()).toBeDefined();
   });
 });
