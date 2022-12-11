@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Brand } from 'src/entities/brand.entity';
-import * as brands from '../../mock/brand/mock.data.json';
-@Injectable()
+import { Brand } from 'src/products/entities/brand.entity';
+import * as brands from '../../../mock/brand/mock.data.json';
+
 export class BrandsService {
   private brands: Brand[] = brands;
   findAll() {

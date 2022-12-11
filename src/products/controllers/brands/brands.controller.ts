@@ -1,5 +1,8 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { CreateBrandDto, UpdateBrandDto } from 'src/dtos/brand/brand.dto';
+import {
+  CreateBrandDto,
+  UpdateBrandDto,
+} from 'src/products/dtos/brand/brand.dto';
 
 @Controller('brands')
 export class BrandsController {
