@@ -1,9 +1,10 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import {
   CreateBrandDto,
   UpdateBrandDto,
 } from 'src/products/dtos/brand/brand.dto';
-
+@ApiTags('brands')
 @Controller('brands')
 export class BrandsController {
   @Get()
