@@ -1,34 +1,24 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BrandsController } from './controllers/brands/brands.controller';
-import { UsersController } from './controllers/users/users.controller';
-import { CategoriesController } from './controllers/categories/categories.controller';
-import { CustomersController } from './controllers/customers/customers.controller';
-import { ProductsController } from './controllers/products/products.controller';
-import { UsersService } from './services/users/users.service';
-import { ProductsService } from './services/products/products.service';
-import { CustomersService } from './services/customers/customers.service';
-import { CategoriesService } from './services/categories/categories.service';
-import { BrandsService } from './services/brands/brands.service';
+import { UsersModule } from './users/users.module';
+import { ProductsModule } from './products/products.module';
+
+import { enviroments } from '../enviroments';
+import config from '../config';
 
 @Module({
-  imports: [],
-  controllers: [
-    AppController,
-    BrandsController,
-    UsersController,
-    CategoriesController,
-    CustomersController,
-    ProductsController,
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: enviroments[process.env.NODE_ENV] || '.env',
+      load: [config],
+      isGlobal: true,
+    }),
+    UsersModule,
+    ProductsModule,
   ],
-  providers: [
-    AppService,
-    UsersService,
-    ProductsService,
-    CustomersService,
-    CategoriesService,
-    BrandsService,
-  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
